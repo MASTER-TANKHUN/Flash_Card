@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Flash Card Master</h1>
+    
+    <div class="tabs">
+        <div class="tab active" id="create-tab">Create Cards</div>
+        <div class="tab" id="play-tab">Play Game</div>
+    </div>
+    
+    <div class="container" id="create-section">
+        <h2>Create Your Flash Cards</h2>
+        <div class="card-form">
+            <input type="text" id="word-input" placeholder="Enter a word or question" autocomplete="off">
+            <input type="text" id="answer-input" placeholder="Enter the answer" autocomplete="off">
+            <button id="add-card-btn">Add Card</button>
+        </div>
+        
+        <div id="notification" class="hidden"></div>
+        
+        <h3>Your Cards (<span id="card-count">0</span>)</h3>
+        <div id="card-list-container">
+            <div class="card-list" id="card-list"></div>
+            <div id="empty-state" class="empty-state">
+                <div class="empty-state-icon">📝</div>
+                <p>You don't have any flash cards yet.</p>
+                <p>Create some cards above to get started!</p>
+                
+                <div class="sample-cards">
+                    <p>Or use our sample cards to try the game:</p>
+                    <button id="load-samples-btn" class="sample-btn">Load Sample Cards</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container hidden" id="play-section">
+        <div id="game-intro">
+            <h2>Ready to Play?</h2>
+            <p id="game-instruction">You need at least 5 cards to play the game.</p>
+            <button id="start-game-btn" class="action-button" disabled>Start Game</button>
+        </div>
+        
+        <div id="game-area" class="hidden">
+            <div class="stats">
+                Score: <span id="score">0</span> / <span id="total">0</span>
+            </div>
+            
+            <div class="game-card no-select" id="current-word"></div>
+            
+            <div class="options no-select" id="options-container"></div>
+            
+            <button id="next-btn" class="action-button hidden">Next Card</button>
+            <button id="finish-btn" class="action-button hidden">Finish Game</button>
+        </div>
+        
+        <div id="game-results" class="hidden">
+            <div id="results-container">
+                <h2 class="results-header">Game Results</h2>
+                <div class="final-score">
+                    <span id="final-score">0</span> / <span id="final-total">0</span>
+                </div>
+                <div class="percentage">
+                    <span id="percentage">0</span>% correct
+                </div>
+                <button id="play-again-btn" class="action-button">Play Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
